@@ -1,0 +1,106 @@
+section{
+    float: left;
+    margin-left: 200px;
+    background-color: rgb(51, 202, 71);
+    border-radius: 5px 5px 5px 5px;
+    padding-left: 20px;
+    font-weight: bold;
+}
+.vwright{
+    float: right;
+    resize: none;
+    width: 320px;
+    height: 133px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.vwleft{
+    float: left;
+    resize: none;
+    width: 320px;
+    height: 133px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.textvw2{
+    resize: none;
+    width: 320px;
+    height: 165px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.item{
+	font-weight: bold;
+	font-family: Palatino;
+    width: 70px;
+    height: 72px;
+	border-radius: inline;
+	border:none;
+	padding: 5px;
+	cursor: pointer;
+}
+.item:hover{
+    background-color: rgb(46, 44, 44);
+    color: white;
+    box-shadow: inset 5px 0px 15px -5px lightgray,
+    inset -3px 0px 15px -5px lightgray,
+    inset 0px -5px 0px -3px lightgray,
+    inset 0px 0px 2px 2px lightgray,
+    inset 0px 5px 15px 0px lightgray;
+}
+.itempn{
+	font-weight: bold;
+	font-family: Palatino;
+    width: 165px;
+    height: 40px;
+	border-radius: inline;
+	border:none;
+	padding: 5px;
+	cursor: pointer;
+}
+.itempn:hover{
+    background-color: rgb(46, 44, 44);
+    color: white;
+    box-shadow: inset 5px 0px 15px -5px lightgray,
+    inset -3px 0px 15px -5px lightgray,
+    inset 0px -5px 0px -3px lightgray,
+    inset 0px 0px 2px 2px lightgray,
+    inset 0px 5px 15px 0px lightgray;
+}
+.total{
+    width: 185px;
+    height: 65px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+section{
+    float: left;
+}
+.right{
+    float: right;
+    margin-right: 50px;
+}
+.rightS{
+    float: right;
+    margin-right: 100px;
+    text-align: center;
+    font-weight: bold;
+    color: green;
+}
+.rightF{
+    float: right;
+    margin-right: 120px;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+.rightt{
+    float: right;
+    margin-right: 50px;
+}
+.left{
+    float: left;
+}
+
+
+
