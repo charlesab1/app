@@ -1,0 +1,143 @@
+<section *ngIf="adminview">
+		<p class="admintext">Administrator
+			<!-- <input type="submit" value="LogOut" (click)="loginShow()"> -->
+			<button mwlConfirmationPopover
+	[popoverTitle]="popoverTitle"
+	class="out"
+	placement="left"
+	(confirm)="logout()"
+	(cancel)="cancelClicked = true"
+	(click)="toggleup()">LogOut</button>
+		</p><br>
+		<ul>
+            <li value="Accounts" (click)="adminAcc()">Accounts</li>
+            <li value="Subjects" (click)="adminSub()">Subjects</li>
+    	</ul>
+	<div *ngIf="adminAccount">
+	<table class="vwright">
+	<tr>
+		<th class="dataa">Username</th>
+		<th class="dataa">Password</th>
+		<th class="dataa">Account Type</th>
+		<th class="dataa">Action</th>
+	</tr>
+	<tr *ngFor="let s of students">
+		<td class="dataa">{{s.name}}</td>
+		<td class="dataa">{{s.password}}</td>
+		<td class="dataa">{{s.accounttype}}</td>
+		<td class="dataa">
+			<button mwlConfirmationPopover
+				[popoverTitle]="popoverTitle"
+				[popoverMessage]="popoverMessage"
+				placement="popup"
+				(confirm)="updateStudent(s._id)"
+				(cancel)="cancelClicked = true"
+				(click)="toggleup()">Update</button>
+				
+				<button mwlConfirmationPopover
+				[popoverTitle]="popoverTitle"
+				[popoverMessage]="popoverMessage"
+				placement="left"
+				(confirm)="deleteStudent(s._id)" 
+				(cancel)="cancelClicked = true"
+				(click)="toggleup()">Delete</button>
+		</td>
+	</tr>
+	</table>
+	<form class="vwleft"  #myForm="ngForm" >
+		Name:<input type="text" [(ngModel)]="studentName" #studname="ngModel" name="studentName"  class="input" required [class.invalids]="studname.invalid && studname.touched" onkeypress="'studname.invalid && studname.touched'" minlength="8" maxlength="15" placeholder="8 to 15 characters" >
+		<br><span *ngIf="studname.touched && studname.invalid" class="invalids"> This is required</span><br>
+		Password:<input type="password" [(ngModel)]="studentPassword" #studpassword="ngModel" name="studentPassword" class="input" required [class.invalids]="studpassword.invalid && studpassword.touched" onkeypress="'studpassword.valid && studpassword.untouched'" minlength="8" maxlength="15" placeholder="8 to 15 characters">
+		<br><span *ngIf="studpassword.touched && studpassword.invalid" class="invalids"> This is required</span><br>
+		<p>Account Type:<select [(ngModel)]="studentAccounttype" #studaccounttype="ngModel" name="studentAccounttype" class="input1" required [class.invalids]="studaccounttype.invalid && studaccounttype.click" >
+			<option *ngFor="let accs of accounttypes" [value]="accs.name" >
+				{{accs.name}}
+			</option>
+		</select></p>
+		<br><span *ngIf="studaccounttype.touched && studaccounttype.invalid" class="invalids"> This is required</span><br>
+		<span *ngIf=" studpassword.valid && studname.valid && studaccounttype.valid">
+				<input type="submit" mwlConfirmationPopover
+				[popoverTitle]="popoverTitle"
+				[popoverMessage]="popoverMessage"
+				placement="left"
+				(confirm)="addStudent()"
+				(cancel)="cancelClicked = true"
+				(click)="toggleup()" value="Add" class="add"  (click)="toggleShow()">
+		</span>
+	</form>
+	</div>
+
+
+
+
+
+
+
+	<div *ngIf="adminSubject">
+		<table class="vwright">
+	<tr>
+		<th class="dataa">SCODE</th>
+		<th class="dataa">DAYS</th>
+		<th class="dataa">TIME</th>
+		<th class="dataa">ROOM</th>
+		<th class="dataa">UNIT</th>
+		<th class="dataa">ACTION</th>
+	</tr>
+	<tr *ngFor="let sb of subjects">
+		<td class="dataa">{{sb.subjectname}}</td>
+		<td class="dataa">{{sb.day}}</td>
+		<td class="dataa">{{sb.time}}</td>
+		<td class="dataa">{{sb.room}}</td>
+		<td class="dataa">{{sb.unit}}</td>
+		<td class="dataa">
+				<button mwlConfirmationPopover
+				[popoverTitle]="popoverTitle"
+				[popoverMessage]="popoverMessage"
+				placement="popup"
+				(confirm)="updateSubject(sb._id)"
+				(cancel)="cancelClicked = true"
+				(click)="toggleup()">Update</button>
+				
+				<button mwlConfirmationPopover
+				[popoverTitle]="popoverTitle"
+				[popoverMessage]="popoverMessage"
+				placement="left"
+				(confirm)="deleteSubject(sb._id)" 
+				(cancel)="cancelClicked = true"
+				(click)="toggleup()">Delete</button>
+			</td>
+	</tr>
+	</table>
+<form  class="vwleft"  #myForm="ngForm" >
+			SCODE:<input type="text" placeholder="4 digits" [(ngModel)]="subjectName" [class.invalids]="scode.invalid && scode.touched"  minlength="4" maxlength="4" onkeypress="'scode.invalid'" name="subjectName"  class="input" required #scode="ngModel" [class.invalid]="scode.invalid" pattern="[0-9]{4}">
+			<br><span *ngIf="scode.touched && scode.invalid" class="invalids"> This is required</span><br>	
+			DAYS:<select [(ngModel)]="subjectDay" #day="ngModel" [class.invalids]="day.invalid && day.touched" name="subjectDay"  class="input1" required>
+				<option *ngFor="let day of subjectdays" [value]="day.name">
+					{{day.name}}
+				</option>
+			</select>
+			<br><span *ngIf="day.touched && day.invalid" class="invalids"> This is required</span><br>
+			TIME:<input type="text" placeholder="12:00-02:30" [(ngModel)]="subjectTime" [class.invalids]="tim.invalid && tim.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" name="subjectTime"  class="input" required #tim="ngModel">
+			<br><span *ngIf="tim.touched && tim.invalid" class="invalids"> This is required</span><br>	
+			ROOM:<input type="text" [(ngModel)]="subjectRoom"name="subjectRoom"  class="input" required #room="ngModel" [class.invalids]="room.invalid && room.touched">
+			<br><span *ngIf="room.touched && room.invalid" class="invalids"> This is required</span><br>
+			UNIT:<select [(ngModel)]="subjectUnit" name="subjectUnit"  class="input1" required #unit="ngModel" [class.invalids]="unit.invalid && unit.touched" > 
+				<option *ngFor="let unit of subunits" [value]="unit.id">
+					{{unit.id}}
+				</option>
+			</select>
+			<br><span *ngIf="unit.touched && unit.invalid" class="invalids"> This is required</span><br>
+			<span *ngIf=" scode.valid && day.valid && tim.valid && room.valid && unit.valid ">
+					<br>
+					<input type="submit" mwlConfirmationPopover
+					[popoverTitle]="popoverTitle"
+					[popoverMessage]="popoverMessage"
+					(confirm)="addSubject()"
+					(cancel)="cancelClicked = true"
+					(click)="toggleup()" value="Add" class="add"  (click)="toggleShow()">
+					</span>
+			
+		
+	</form>
+	</div>
+</section>

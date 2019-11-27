@@ -1,0 +1,237 @@
+<section *ngIf="encoderview">
+        <p class="encodertext">Encoder
+            <!-- <input type="submit" class="out2" value="LogOut" (click)="encoderShow()"> -->
+            <button mwlConfirmationPopover
+    [popoverTitle]="popoverTitle"
+    class="out2"
+    placement="popup"
+    (confirm)="logout()"
+    (cancel)="cancelClicked = true"
+    (click)="toggleup()">LogOut</button>
+        </p><br>
+        <ul>
+        <li value="Student Record" (click)="encoderAccad()"> Student Record</li>
+        <li value="View Subjects" (click)="encoderSub()">View Subjects</li>
+        </ul>
+    <div *ngIf="encoderSubject">
+            <table class="vwright">
+                    <tr>
+                        <th class="dataa">SCODE</th>
+                        <th class="dataa">DAYS</th>
+                        <th class="dataa">TIME</th>
+                        <th class="dataa">ROOM</th>
+                        <th class="dataa">UNIT</th>
+                    </tr>
+                    <tr *ngFor="let sb of subjects">
+                        <td class="dataa">{{sb.subjectname}}</td>
+                        <td class="dataa">{{sb.day}}</td>
+                        <td class="dataa">{{sb.time}}</td>
+                        <td class="dataa">{{sb.room}}</td>
+                        <td class="dataa">{{sb.unit}}</td>
+                    </tr>
+                    </table>
+            </div>
+
+
+
+<div *ngIf="encoderAccountEdit">
+    
+<table class="vwright"  *ngFor="let r of registers">
+    <tr>
+        <td class="dataa">Stud_id</td>
+        <td class="dataa">Stud_type</td>
+        <td class="dataa">Name</td>
+        <td class="dataa">Status</td>
+        <td class="dataa">College</td>
+        <td class="dataa">Course</td>
+        <td class="dataa">Yr_sectiom</td>
+        <td class="dataa">Age</td>
+        <td class="dataa">Gender</td>
+        <td class="dataa">Action</td>
+    </tr>
+    <tr>
+        <td class="dataa">{{r.stud_id}}</td>
+        <td class="dataa">{{r.stud_type}}</td>
+        <td class="dataa">{{r.name}}</td>
+        <td class="dataa">{{r.status}}</td>
+        <td class="dataa">{{r.college}}</td>
+        <td class="dataa">{{r.course}}</td>
+        <td class="dataa">{{r.yr_section}}</td>
+        <td class="dataa">{{r.age}}</td>
+        <td class="dataa">{{r.gender}}</td>
+        <td class="dataa">
+                <button mwlConfirmationPopover
+                [popoverTitle]="popoverTitle"
+                placement="popup"
+                (confirm)="updateRegister(r._id)"
+                (cancel)="cancelClicked = true"
+                (click)="toggleup()">Update</button>
+                <button mwlConfirmationPopover
+                [popoverTitle]="popoverTitle"
+                placement="popup"
+                (confirm)="deleteRegister(r._id)"
+                (cancel)="cancelClicked = true"
+                (click)="toggleup()">Delete</button>
+            </td>
+    </tr>
+    <br>
+    <tr>
+            <td class="dataa" colspan="2" >Subject Code</td>
+            <td class="dataa" colspan="2">Days</td>
+            <td class="dataa" colspan="2">Time</td>
+            <td class="dataa" colspan="2">Room</td>
+            <td class="dataa" colspan="2">Units</td>
+        </tr>
+    <tr>
+        <td class="dataa" colspan="2">{{r.subjectcode}}</td>
+        <td class="dataa" colspan="2">{{r.day}}</td>
+        <td class="dataa" colspan="2">{{r.time}}</td>
+        <td class="dataa" colspan="2">{{r.room}}</td>
+        <td class="dataa" colspan="2">{{r.unit}}</td>
+    </tr>
+    <tr>
+        <td class="dataa" colspan="2">{{r.subjectcode1}}</td>
+        <td class="dataa" colspan="2">{{r.day1}}</td>
+        <td class="dataa" colspan="2">{{r.time1}}</td>
+        <td class="dataa" colspan="2">{{r.room1}}</td>
+        <td class="dataa" colspan="2">{{r.unit1}}</td>
+    </tr>
+    <tr>
+        <td class="dataa" colspan="2">{{r.subjectcode2}}</td>
+        <td class="dataa" colspan="2">{{r.day2}}</td>
+        <td class="dataa" colspan="2">{{r.time2}}</td>
+        <td class="dataa" colspan="2">{{r.room2}}</td>
+        <td class="dataa" colspan="2">{{r.unit2}}</td>
+    </tr>
+    <tr>
+        <td class="dataa" colspan="2">{{r.subjectcode3}}</td>
+        <td class="dataa" colspan="2">{{r.day3}}</td>
+        <td class="dataa" colspan="2">{{r.time3}}</td>
+        <td class="dataa" colspan="2">{{r.room3}}</td>
+        <td class="dataa" colspan="2">{{r.unit3}}</td>
+    </tr>
+    <tr>
+        <td class="dataa" colspan="2">{{r.subjectcode4}}</td>
+        <td class="dataa" colspan="2">{{r.day4}}</td>
+        <td class="dataa" colspan="2">{{r.time4}}</td>
+        <td class="dataa" colspan="2">{{r.room4}}</td>
+        <td class="dataa" colspan="2">{{r.unit4}}</td>
+    </tr>   
+    </table>
+<form class="vwleft"  #myForm="ngForm" >
+    
+            Stud_id:<input type="text" [(ngModel)]="registerStud_id" name="registerStud_id"  class="input1" required #stud_id="ngModel" placeholder="2018-3519" pattern="[0-9]{4}-[0-9]{4}" required [class.invalids]="stud_id.invalid && stud_id.touched" class="input" minlength="9" maxlength="9">
+            Stud_type:<select type="text" [(ngModel)]="registerStud_type" name="registerStud_type"  class="input1" required  #studtype="ngModel" [class.invalids]="studtype.invalid && studtype.touched" >
+                <option *ngFor="let studtype of studtypes" [value]="studtype.name">
+                    {{studtype.name}}
+                </option>
+            </select>
+            <br>Name:<input type="text" [(ngModel)]="registerName" name="registerName" #studname="ngModel" class="input" required [class.invalids]="studname.invalid && studname.touched">
+            Status:<select type="text" [(ngModel)]="registerStatus"name="registerStatus"  class="input1" required #status="ngModel" [class.invalids]="status.invalid && status.touched">
+                <option *ngFor="let stat of stats" [value]="stat.name">
+                    {{stat.name}}
+                </option>
+            </select><br>
+            College:<select type="text" [(ngModel)]="registerCollege" name="registerCollege"  class="input1" required  #college="ngModel" [class.invalids]="college.invalid && college.touched">
+                <option *ngFor="let college of colleges" [value]="college.name">
+                    {{college.name}}
+                </option>   
+            </select>
+            Course:<select type="text" [(ngModel)]="registerCourse"name="registerCourse"  class="input1" required #course="ngModel" [class.invalids]="course.invalid && course.touched" >
+                    <option *ngFor="let course of courses" [value]="course.name">
+                        {{course.name}}
+                    </option>
+                </select><br>
+            Yr_section:<select type="text" [(ngModel)]="registerYr_section" name="registerYr_section"  class="input1" required #yrsec="ngModel" [class.invalids]="yrsec.invalid && yrsec.touched">
+                <option *ngFor="let yrsec of yrsecs" [value]="yrsec.name">
+                    {{yrsec.name}}
+                </option>   
+            </select>
+            Age:<input type="number" [(ngModel)]="registerAge" name="registerAge"  class="input" required #age="ngModel" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(9, this.maxLength);" [class.invalids]="age.invalid && age.touched" min="17" max="70" minlength="2" maxlength="2">
+            <br>Gender:<select type="text" [(ngModel)]="registerGender" name="registerGender"  class="input1" required  #gender="ngModel" [class.invalids]="gender.invalid && gender.touched">
+                <option *ngFor="let gender of genders" [value]="gender.name">
+                    {{gender.name}}
+                </option>
+            </select><br>
+            
+        <table>
+        <tr>
+                <td class="min">SCODE:<input type="text" placeholder="4 digits" [(ngModel)]="registerSubjectcode" [class.invalids]="scode.invalid && scode.touched"  minlength="4" maxlength="4" name="registerSubjectcode"  class="input3" required #scode="ngModel" pattern="[0-9]{4}"></td>
+                <td class="min">DAYS:<select [(ngModel)]="registerDay" name="registerDay" #day="ngModel" [class.invalids]="day.invalid && day.touched" class="input3" required>
+                        <option *ngFor="let day of subjectdays" [value]="day.name">
+                            {{day.name}}
+                        </option>
+                    </select></td>
+                <td class="min">TIME:<input type="text" placeholder="12:00-02:30" [(ngModel)]="registerTime" name="registerTime" [class.invalids]="tim.invalid && tim.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" class="input3" required #tim="ngModel"></td>
+                <td class="min">ROOM:<input type="text" [(ngModel)]="registerRoom" name="registerRoom" class="input3" required #room="ngModel" [class.invalids]="room.invalid && room.touched"></td>
+                <td class="min">UNIT:<select [(ngModel)]="registerUnit" name="registerUnit" class="input3" required #unit="ngModel" [class.invalids]="unit.invalid && unit.touched" > 
+                        <option *ngFor="let unit of subunits" [value]="unit.id">
+                            {{unit.id}}
+                        </option>
+                    </select></td>
+        </tr>
+        <tr>
+                <td class="min">SCODE:<input type="text" placeholder="4 digits" [(ngModel)]="registerSubjectcode1" [class.invalids]="scode1.invalid && scode1.touched"  minlength="4" maxlength="4" name="registerSubjectcode1"  class="input3" required #scode1="ngModel" [class.invalid]="scode1.invalid" pattern="[0-9]{4}"></td>
+                <td class="min">DAYS:<select [(ngModel)]="registerDay1" name="registerDay1" #day1="ngModel" [class.invalids]="day1.invalid && day1.touched" class="input3" required>
+                        <option *ngFor="let day of subjectdays" [value]="day.name">
+                            {{day.name}}
+                        </option>
+                    </select></td>
+                <td class="min">TIME:<input type="text" placeholder="12:00-02:30" [(ngModel)]="registerTime1" name="registerTime1" [class.invalids]="tim1.invalid && tim1.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" class="input3" required #tim1="ngModel"></td>
+                <td class="min">ROOM:<input type="text" [(ngModel)]="registerRoom1" name="registerRoom1" class="input3" required #room1="ngModel" [class.invalids]="room1.invalid && room1.touched"></td>
+                <td class="min">UNIT:<select [(ngModel)]="registerUnit1" name="registerUnit1" class="input3" required #unit1="ngModel" [class.invalids]="unit1.invalid && unit1.touched" > 
+                        <option *ngFor="let unit of subunits" [value]="unit.id">
+                            {{unit.id}}
+                        </option>
+                    </select></td>
+        </tr>
+        <tr>
+                <td class="min">SCODE:<input type="text" placeholder="4 digits" [(ngModel)]="registerSubjectcode2" [class.invalids]="scode2.invalid && scode2.touched"  minlength="4" maxlength="4" name="registerSubjectcode2"  class="input3" required #scode2="ngModel" pattern="[0-9]{4}"></td>
+                <td class="min">DAYS:<select [(ngModel)]="registerDay2" name="registerDay2" #day2="ngModel" [class.invalids]="day2.invalid && day2.touched" class="input3" required>
+                        <option *ngFor="let day of subjectdays" [value]="day.name">
+                            {{day.name}}
+                        </option>
+                    </select></td>
+                <td class="min">TIME:<input type="text" placeholder="12:00-02:30" [(ngModel)]="registerTime2" name="registerTime2" [class.invalids]="tim2.invalid && tim2.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" class="input3" required #tim2="ngModel"></td>
+                <td class="min">ROOM:<input type="text" [(ngModel)]="registerRoom2" name="registerRoom2" class="input3" required #room2="ngModel" [class.invalids]="room2.invalid && room2.touched"></td>
+                <td class="min">UNIT:<select [(ngModel)]="registerUnit2" name="registerUnit2" class="input3" required #unit2="ngModel" [class.invalids]="unit2.invalid && unit2.touched" > 
+                        <option *ngFor="let unit of subunits" [value]="unit.id">
+                            {{unit.id}}
+                        </option>
+                    </select></td>
+        </tr>
+        <tr>
+                <td class="min">SCODE:<input type="text" placeholder="4 digits" [(ngModel)]="registerSubjectcode3" [class.invalids]="scode3.invalid && scode3.touched"  minlength="4" maxlength="4" name="registerSubjectcode3"  class="input3" #scode3="ngModel" pattern="[0-9]{4}"></td>
+                <td class="min">DAYS:<select [(ngModel)]="registerDay3" name="registerDay3" #day3="ngModel" [class.invalids]="day3.invalid && day3.touched" class="input3">
+                        <option *ngFor="let day of subjectdays" [value]="day.name">
+                            {{day.name}}
+                        </option>
+                    </select></td>
+                <td class="min">TIME:<input type="text" placeholder="12:00-02:30" [(ngModel)]="registerTime3" name="registerTime3" [class.invalids]="tim3.invalid && tim3.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" class="input3" #tim3="ngModel"></td>
+                <td class="min">ROOM:<input type="text" [(ngModel)]="registerRoom3" name="registerRoom3" class="input3" #room3="ngModel" [class.invalids]="room3.invalid && room3.touched"></td>
+                <td class="min">UNIT:<select [(ngModel)]="registerUnit3" name="registerUnit3" class="input3" #unit3="ngModel" [class.invalids]="unit3.invalid && unit3.touched" > 
+                        <option *ngFor="let unit of subunits" [value]="unit.id">
+                            {{unit.id}}
+                        </option>
+                    </select></td>
+        </tr>
+        <tr>
+            <td class="min" colspan="5"><span *ngIf=" scode.valid && day.valid && tim.valid && room.valid && unit.valid && scode1.valid && day1.valid && tim1.valid && room1.valid && unit1.valid && scode2.valid && day2.valid && tim2.valid && room2.valid && unit2.valid && stud_id.valid && studtype.valid && studname.valid && status.valid && course.valid && yrsec.valid && age.valid && gender.valid">
+                    <input type="submit" value="Add" class="btns" mwlConfirmationPopover
+                    [popoverTitle]="popoverTitle"
+                    placement="left"
+                    (confirm)="addRegister()"
+                    (cancel)="cancelClicked = true"
+                    (click)="toggleup()"  (click)="toggleShow()">
+                    </span>
+            </td>
+        </tr>
+    </table>
+    </form>
+
+
+
+
+
+</div>
+</section>

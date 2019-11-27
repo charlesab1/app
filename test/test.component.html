@@ -1,0 +1,48 @@
+<!-- <p>test works!</p>
+<h1>Welcome {{name}}</h1>
+
+{{1+1}}<br>
+{{"Hello: +name"}}<br>
+{{name.length}}<br>
+{{name.toUpperCase()}}<br>
+
+<p>{{greetUser}}</p>
+
+<input type="text" value="Abbie">
+
+<h2 [class] ="successClass">Hello</h2>
+<h2 [class] ="textSuccessClass">Hello Green</h2>
+<h2 [class] ="textDangerClass">Hello Red</h2>
+
+<h2 [class.text-danger] ="hasError">Hello</h2>
+
+<h2 [ngClass] ="messageClasses">Hello</h2> 
+
+<input #myInput type="text">
+<button (click)="log(myInput.value)">Log</button>
+<br><br>
+<input type="checkbox"[(ngModel)]="name" [style.color]="name">
+{{name}} -->
+
+<ul *ngFor="let student of students">
+    <li>{{student.name}}</li>
+</ul>
+
+<form (submit) ="addStudent()">
+    <label>Name</label><br>
+    <input type="text" name="student_name" [(ngModel)]="student_name"><br>
+    <label>Age</label><br>
+    <input type="text" name="student_age" [(ngModel)]="student_age"><br>
+    <input type="submit">
+</form>
+
+<table border="1">
+    <tr *ngFor="let student of students">
+        <td>{{student.name}}</td>
+        <td>{{student.age}}</td>
+        <td>
+            <button (click)="deleteStudent(student._id)">Delete</button>
+            <button (click)="updateStudent(student._id)">Update</button>
+        </td>
+    </tr>
+</table>

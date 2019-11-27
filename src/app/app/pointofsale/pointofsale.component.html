@@ -1,0 +1,35 @@
+<div class="rightS" *ngIf="shows"><p>Transaction Successful</p></div>
+<div class="rightF" *ngIf="showed"><p>Transaction Failed</p></div>
+<h1>Point Of Sale</h1>
+<section>
+    <div class="left">
+    <textarea readonly value="{{ order }}{{ result1 }}" class="textvw"></textarea><br>
+    <input type="text" readonly value="Total:{{ result }}.00" class="total">
+    <button class="item" (click)="toggleShow()">Pay</button>
+    <button class="item" *ngFor="let longButton of longButtons" (click)="addToExpression(longButton)">
+            {{ longButton }}
+    </button>
+    </div>
+    <div class="right">
+        <button class="item" *ngFor="let button13 of button13s" (click)="addToExpression(button13)">
+            <p>item {{ button13 }}</p>
+        </button><br>
+        <button class="item" *ngFor="let button46 of button46s" (click)="addToExpression(button46)">
+            <p>item {{ button46 }}</p>
+        </button><br>
+        <button class="item" *ngFor="let button79 of button79s" (click)="addToExpression(button79)">
+            <p>item {{ button79 }}</p>
+        </button>
+    </div>
+    
+</section>    
+
+<div class="rightt" *ngIf="show">
+        <textarea readonly value="{{ order }}{{ result1 }}Total:{{ result }}.00php {{ displaychange }}.00php {{ displayparent }}.00php" class="textvw2"></textarea><br>
+        <button class="itempn" *ngFor="let pay of pays" (click)="calculate(pay)">
+            {{ pay }}
+        </button>
+        <button class="itempn" *ngFor="let new of news" (click)="addToExpression(new)">
+            {{ new }}
+        </button>    
+</div>
