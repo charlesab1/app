@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
 
-  private url:string ="http://localhost:80";
+  private url:string ="https://warm-sierra-80450.herokuapp.com:80";
   private headers = new HttpHeaders()
   .set('Content-Type','application/json');
 
