@@ -8,11 +8,16 @@ import { Observable } from 'rxjs';
 })
 export class StudentService {
 
-  private url:string ="https://warm-sierra-80450.herokuapp.com:80";
+  private url:string ="http://localhost:80";
   private headers = new HttpHeaders()
   .set('Content-Type','application/json');
 
   constructor(private http:HttpClient) { }
+
+  logout() :void {    
+    localStorage.setItem('isLoggedIn','false');    
+    localStorage.removeItem('token');    
+    }
 
   getStudents():Observable<Student[]>{
     return this.http.get<Student[]>(

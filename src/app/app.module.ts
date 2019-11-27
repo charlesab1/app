@@ -3,26 +3,29 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PointofsaleComponent } from './pointofsale/pointofsale.component';
-import { FormsModule } from '@angular/forms';
-import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
+import { AdminComponent } from './admin.component';
+import { EncoderComponent } from './encoder.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConfirmationPopoverModule } from 'angular-confirmation-popover';
 
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PointofsaleComponent
+    AdminComponent,
+    EncoderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-	FormsModule,
-  HttpClientModule,
-  ConfirmationPopoverModule.forRoot({
-    confirmButtonType: 'danger'
-    })
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    ConfirmationPopoverModule.forRoot({
+      confirmButtonType: 'danger'
+      })
   ],
   providers: [],
   bootstrap: [AppComponent]

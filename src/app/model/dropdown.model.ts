@@ -19,3 +19,8 @@ export class studType{
     id: number;
     name: string;
 }
+
+export class studStatus{
+    id: number;
+    name: string;
+}
