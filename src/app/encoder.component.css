@@ -1,4 +1,5 @@
 body{
+  min-width: 600px; 
   background-color: #422d00;
 }
 section{
@@ -199,7 +200,7 @@ li{
 
 @media only screen and (max-width: 800px){
   body{
-    
+    min-width: 600px;  
     background-color: #422d00;
   }
   section{

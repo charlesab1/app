@@ -199,7 +199,7 @@ li{
 }
 
 
-@media only screen and (max-width: 800px){
+@media screen and (min-width: 600px) and (max-width: 1024px){
   body{
     
     background-color: #422d00;
