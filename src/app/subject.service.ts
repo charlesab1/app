@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class SubjectService {
 
-  private url:string ="80";
+  private url:string ="http://localhost:80";
   private headers = new HttpHeaders()
   .set('Content-Type','application/json');
 
