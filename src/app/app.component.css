@@ -2,32 +2,45 @@ body{
   background-color: #422d00;
 }
 section{
+  height: 100%;
   padding-bottom: 50px;
   width: 60%;
-  margin-top: 50px;
-  margin-left: 250px;
+  margin-left: 20%;
   text-align: center;
   color: aliceblue;
   position: relative;
 }
-
+.input1{
+  color: white;
+  padding: 5px;
+  margin: 20px;
+  width: 20%;
+  border-collapse: collapse;
+  font-size: 15px;
+  border-bottom: 2px solid;
+  background: #422d00de;
+  border-left: 2px solid;
+  border-top: none;
+  border-right: 2px solid;
+  border-radius: 5px;
+}
 
 .lgn{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 50px;
-  margin-top: 120px;
-  margin-left: -150px;
+  margin-top: 20%;
+  margin-left: -20%;
   position: absolute;
   border-bottom: #422d00 solid 10px;
 }
 .logincon{
-  float: left;
-  height: 300px;
+  height: 400px;
+  margin-left: 10%;
+  width: 80%;
   background-color: #6444008f;
   padding-bottom: 50px;
-  width: 60%;
-  margin-top: 50px;
-  margin-left: 200px;
+  margin-top: 100px;
+  position: relative;
   text-align: center;
   color: aliceblue;
 }
@@ -38,7 +51,7 @@ section{
   padding: 5px;
   color: aliceblue;
   margin-bottom: 10px;
-  width: 300px;
+  width: 50%;
   border-collapse: collapse;
   font-size: 15px;
   border-bottom: 2px solid;
@@ -49,7 +62,7 @@ section{
   border-radius: 5px;
 }
 .encode{
-  margin-left: 20px;
+  margin-left: 38%;
   padding-left: 20px;
   padding-right: 20px;
   font-size: 20px;
@@ -95,19 +108,21 @@ table, td{
   color: #fff4cd;
   border: 1px solid #9b9786;
 }
+.min, .input3{
+  width: 150px;
+}
 .out{
   float: left;
   margin-top: 0px;
   position: absolute;
-  margin-left: 600px;
+  margin-left: 80%;
   font-size: 10px;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 5%;
 }
 .admintext{
+  margin-top: -15px;
   padding-top: 10px;
-  margin-top: -50px;
-  float: left;
   position: absolute;
   font-size: 30px;
 }
@@ -116,9 +131,9 @@ ul{
   background-image: linear-gradient(#fff4cd , #ffdd61);
   height: 40px;
   float: left;
-  width: 840px;
+  width: 100%;
   position: relative;
-  margin-top: -10px;
+  margin-top: 10px;
   margin-left: -30px;
 }
 ul li{
@@ -135,27 +150,32 @@ li{
 }
 .out2{
   float: left;
-  margin-top: 0px;
   position: absolute;
   margin-left: 600px;
   font-size: 10px;
   padding: 5px;
-  border-radius: 10px;
+  border-radius: 5%;
 }
 .encodertext{
   padding-top: 10px;
-  margin-top: -50px;
+  margin-top: -15px;
   float: left;
   position: absolute;
   font-size: 30px;
 }
-.add{
+.add, .btns{
   background-image: linear-gradient(#fff4cd , #ffdd61);
   padding-left: 20px;
   padding-right: 20px;
   font-size: 20px;
   border-radius: 5px;
   margin-top: 20px;
+}
+
+.btns:hover{
+  cursor: pointer;
+  background-image: linear-gradient(#7e6200 , #523f00);
+  color:white;
 }
 .input{
   padding: 5px;
@@ -173,4 +193,150 @@ li{
 }
 .invalids{
   color: red;
+}
+.pop{
+  background-color: #422d00;
+}
+
+
+@media only screen and (max-width: 800px){
+  body{
+    
+    background-color: #422d00;
+  }
+  section{
+    position: relative;
+    margin-left: 2%;
+    padding-bottom: 50px;
+    width: 100%;
+    margin-top: 20px;
+    color: aliceblue;
+  }
+  .logincon{
+    height: 30%;
+    background-color: #6444008f;
+    padding-bottom: 50px;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 50px;
+    color: aliceblue;
+  }
+  .input1{
+    color: white;
+    padding: 5px;
+    margin: 20px;
+    width: 20%;
+    border-collapse: collapse;
+    font-size: 15px;
+    border-bottom: 2px solid;
+    background: #422d00de;
+    border-left: 2px solid;
+    border-top: none;
+    border-right: 2px solid;
+    border-radius: 5px;
+  }
+  
+  .lgn{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 50px;
+    margin-top: 80px;
+    margin-left: -15%;
+    position: absolute;
+    border-bottom: #422d00 solid 10px;
+  }
+  
+  .username{
+    margin-top: 200px;
+  }
+  .username, .password{
+    padding: 5px;
+    color: aliceblue;
+    margin-bottom: 10px;
+    width: 70%;
+    border-collapse: collapse;
+    font-size: 15px;
+    border-bottom: 2px solid;
+    background: none;
+    border-left: 2px solid;
+    border-top: none;
+    border-right: 2px solid;
+    border-radius: 5px;
+  }
+
+  table{
+    background-color:#422d00;
+    width: 100%;
+    margin-left: -2%;
+  }
+  table, td{
+    color: #fff4cd;
+    border: 1px solid #9b9786;
+  }
+  .min, .input3{
+    max-width: 80px;
+    width: 80px;
+  }
+
+  ul{
+    text-align: start;
+    background-image: linear-gradient(#fff4cd , #ffdd61);
+    height: 40px;
+    width: 98%;
+    position: relative;
+  }
+  ul li{
+    display: inline-block;
+    
+  }
+  li{
+    border-left: 1px solid #fff4cd;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-top: 10px;
+    margin-right: 20px;
+  }
+  .out{
+    background-color: #cfaf3b;
+    float: left;
+    position: absolute;
+    margin-left: 340%;
+    font-size: 10px;
+    border-radius: 5%;
+  }
+
+  .out2{
+    float: left;
+    background-color: #cfaf3b;
+    margin-top: 0px;
+    position: absolute;
+    margin-left: 430px;
+    font-size: 10px;
+    border-radius: 5%;
+  }
+  .out:hover, .out2:hover{
+    font-size: 10px;
+    cursor: pointer;
+    background-image: linear-gradient(#7e6200 , #523f00);
+    color:white;
+  }
+  .admintext, .encodertext{
+    margin-top: -30px;
+    padding-top: 10px;
+    font-size: 20px;
+  }
+  
+  .input{
+    padding: 5px;
+    color: aliceblue;
+    width: 150px;
+    border-collapse: collapse;
+    font-size: 15px;
+    border-bottom: 2px solid;
+    background: none;
+    border-left: 2px solid;
+    border-top: none;
+    border-right: 2px solid;
+    border-radius: 5px;
+  }
 }

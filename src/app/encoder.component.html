@@ -1,5 +1,5 @@
 <section *ngIf="encoderview">
-        <p class="encodertext">Encoder
+        <p class="encodertext">Encoder</p>
             <!-- <input type="submit" class="out2" value="LogOut" (click)="encoderShow()"> -->
             <button mwlConfirmationPopover
     [popoverTitle]="popoverTitle"
@@ -8,7 +8,7 @@
     (confirm)="logout()"
     (cancel)="cancelClicked = true"
     (click)="toggleup()">LogOut</button>
-        </p><br>
+        <br>
         <ul>
         <li value="Student Record" (click)="encoderAccad()"> Student Record</li>
         <li value="View Subjects" (click)="encoderSub()">View Subjects</li>
@@ -156,60 +156,60 @@
             
         <table>
         <tr>
-                <td class="min">SCODE:<input type="text" placeholder="4 digits" [(ngModel)]="registerSubjectcode" [class.invalids]="scode.invalid && scode.touched"  minlength="4" maxlength="4" name="registerSubjectcode"  class="input3" required #scode="ngModel" pattern="[0-9]{4}"></td>
-                <td class="min">DAYS:<select [(ngModel)]="registerDay" name="registerDay" #day="ngModel" [class.invalids]="day.invalid && day.touched" class="input3" required>
+                <td>SCODE:<br><input type="text" placeholder="4 digits" [(ngModel)]="registerSubjectcode" [class.invalids]="scode.invalid && scode.touched"  minlength="4" maxlength="4" name="registerSubjectcode"  class="input3" required #scode="ngModel" pattern="[0-9]{4}"></td>
+                <td>DAYS:<br><select [(ngModel)]="registerDay" name="registerDay" #day="ngModel" [class.invalids]="day.invalid && day.touched" class="input3" required>
                         <option *ngFor="let day of subjectdays" [value]="day.name">
                             {{day.name}}
                         </option>
                     </select></td>
-                <td class="min">TIME:<input type="text" placeholder="12:00-02:30" [(ngModel)]="registerTime" name="registerTime" [class.invalids]="tim.invalid && tim.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" class="input3" required #tim="ngModel"></td>
-                <td class="min">ROOM:<input type="text" [(ngModel)]="registerRoom" name="registerRoom" class="input3" required #room="ngModel" [class.invalids]="room.invalid && room.touched"></td>
-                <td class="min">UNIT:<select [(ngModel)]="registerUnit" name="registerUnit" class="input3" required #unit="ngModel" [class.invalids]="unit.invalid && unit.touched" > 
+                <td>TIME:<br><input type="text" placeholder="12:00-02:30" [(ngModel)]="registerTime" name="registerTime" [class.invalids]="tim.invalid && tim.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" class="input3" required #tim="ngModel"></td>
+                <td>ROOM:<br><input type="text" [(ngModel)]="registerRoom" name="registerRoom" class="input3" required #room="ngModel" [class.invalids]="room.invalid && room.touched"></td>
+                <td>UNIT:<br><select [(ngModel)]="registerUnit" name="registerUnit" class="input3" required #unit="ngModel" [class.invalids]="unit.invalid && unit.touched" > 
                         <option *ngFor="let unit of subunits" [value]="unit.id">
                             {{unit.id}}
                         </option>
                     </select></td>
         </tr>
         <tr>
-                <td class="min">SCODE:<input type="text" placeholder="4 digits" [(ngModel)]="registerSubjectcode1" [class.invalids]="scode1.invalid && scode1.touched"  minlength="4" maxlength="4" name="registerSubjectcode1"  class="input3" required #scode1="ngModel" [class.invalid]="scode1.invalid" pattern="[0-9]{4}"></td>
-                <td class="min">DAYS:<select [(ngModel)]="registerDay1" name="registerDay1" #day1="ngModel" [class.invalids]="day1.invalid && day1.touched" class="input3" required>
+                <td>SCODE:<br><input type="text" placeholder="4 digits" [(ngModel)]="registerSubjectcode1" [class.invalids]="scode1.invalid && scode1.touched"  minlength="4" maxlength="4" name="registerSubjectcode1"  class="input3" required #scode1="ngModel" [class.invalid]="scode1.invalid" pattern="[0-9]{4}"></td>
+                <td>DAYS:<br><select [(ngModel)]="registerDay1" name="registerDay1" #day1="ngModel" [class.invalids]="day1.invalid && day1.touched" class="input3" required>
                         <option *ngFor="let day of subjectdays" [value]="day.name">
                             {{day.name}}
                         </option>
                     </select></td>
-                <td class="min">TIME:<input type="text" placeholder="12:00-02:30" [(ngModel)]="registerTime1" name="registerTime1" [class.invalids]="tim1.invalid && tim1.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" class="input3" required #tim1="ngModel"></td>
-                <td class="min">ROOM:<input type="text" [(ngModel)]="registerRoom1" name="registerRoom1" class="input3" required #room1="ngModel" [class.invalids]="room1.invalid && room1.touched"></td>
-                <td class="min">UNIT:<select [(ngModel)]="registerUnit1" name="registerUnit1" class="input3" required #unit1="ngModel" [class.invalids]="unit1.invalid && unit1.touched" > 
+                <td>TIME:<br><input type="text" placeholder="12:00-02:30" [(ngModel)]="registerTime1" name="registerTime1" [class.invalids]="tim1.invalid && tim1.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" class="input3" required #tim1="ngModel"></td>
+                <td>ROOM:<br><input type="text" [(ngModel)]="registerRoom1" name="registerRoom1" class="input3" required #room1="ngModel" [class.invalids]="room1.invalid && room1.touched"></td>
+                <td>UNIT:<br><select [(ngModel)]="registerUnit1" name="registerUnit1" class="input3" required #unit1="ngModel" [class.invalids]="unit1.invalid && unit1.touched" > 
                         <option *ngFor="let unit of subunits" [value]="unit.id">
                             {{unit.id}}
                         </option>
                     </select></td>
         </tr>
         <tr>
-                <td class="min">SCODE:<input type="text" placeholder="4 digits" [(ngModel)]="registerSubjectcode2" [class.invalids]="scode2.invalid && scode2.touched"  minlength="4" maxlength="4" name="registerSubjectcode2"  class="input3" required #scode2="ngModel" pattern="[0-9]{4}"></td>
-                <td class="min">DAYS:<select [(ngModel)]="registerDay2" name="registerDay2" #day2="ngModel" [class.invalids]="day2.invalid && day2.touched" class="input3" required>
+                <td>SCODE:<br><input type="text" placeholder="4 digits" [(ngModel)]="registerSubjectcode2" [class.invalids]="scode2.invalid && scode2.touched"  minlength="4" maxlength="4" name="registerSubjectcode2"  class="input3" required #scode2="ngModel" pattern="[0-9]{4}"></td>
+                <td>DAYS:<br><select [(ngModel)]="registerDay2" name="registerDay2" #day2="ngModel" [class.invalids]="day2.invalid && day2.touched" class="input3" required>
                         <option *ngFor="let day of subjectdays" [value]="day.name">
                             {{day.name}}
                         </option>
                     </select></td>
-                <td class="min">TIME:<input type="text" placeholder="12:00-02:30" [(ngModel)]="registerTime2" name="registerTime2" [class.invalids]="tim2.invalid && tim2.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" class="input3" required #tim2="ngModel"></td>
-                <td class="min">ROOM:<input type="text" [(ngModel)]="registerRoom2" name="registerRoom2" class="input3" required #room2="ngModel" [class.invalids]="room2.invalid && room2.touched"></td>
-                <td class="min">UNIT:<select [(ngModel)]="registerUnit2" name="registerUnit2" class="input3" required #unit2="ngModel" [class.invalids]="unit2.invalid && unit2.touched" > 
+                <td>TIME:<br><input type="text" placeholder="12:00-02:30" [(ngModel)]="registerTime2" name="registerTime2" [class.invalids]="tim2.invalid && tim2.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" class="input3" required #tim2="ngModel"></td>
+                <td>ROOM:<br><input type="text" [(ngModel)]="registerRoom2" name="registerRoom2" class="input3" required #room2="ngModel" [class.invalids]="room2.invalid && room2.touched"></td>
+                <td>UNIT:<br><select [(ngModel)]="registerUnit2" name="registerUnit2" class="input3" required #unit2="ngModel" [class.invalids]="unit2.invalid && unit2.touched" > 
                         <option *ngFor="let unit of subunits" [value]="unit.id">
                             {{unit.id}}
                         </option>
                     </select></td>
         </tr>
         <tr>
-                <td class="min">SCODE:<input type="text" placeholder="4 digits" [(ngModel)]="registerSubjectcode3" [class.invalids]="scode3.invalid && scode3.touched"  minlength="4" maxlength="4" name="registerSubjectcode3"  class="input3" #scode3="ngModel" pattern="[0-9]{4}"></td>
-                <td class="min">DAYS:<select [(ngModel)]="registerDay3" name="registerDay3" #day3="ngModel" [class.invalids]="day3.invalid && day3.touched" class="input3">
+                <td>SCODE:<br><input type="text" placeholder="4 digits" [(ngModel)]="registerSubjectcode3" [class.invalids]="scode3.invalid && scode3.touched"  minlength="4" maxlength="4" name="registerSubjectcode3"  class="input3" #scode3="ngModel" pattern="[0-9]{4}"></td>
+                <td>DAYS:<br><select [(ngModel)]="registerDay3" name="registerDay3" #day3="ngModel" [class.invalids]="day3.invalid && day3.touched" class="input3">
                         <option *ngFor="let day of subjectdays" [value]="day.name">
                             {{day.name}}
                         </option>
                     </select></td>
-                <td class="min">TIME:<input type="text" placeholder="12:00-02:30" [(ngModel)]="registerTime3" name="registerTime3" [class.invalids]="tim3.invalid && tim3.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" class="input3" #tim3="ngModel"></td>
-                <td class="min">ROOM:<input type="text" [(ngModel)]="registerRoom3" name="registerRoom3" class="input3" #room3="ngModel" [class.invalids]="room3.invalid && room3.touched"></td>
-                <td class="min">UNIT:<select [(ngModel)]="registerUnit3" name="registerUnit3" class="input3" #unit3="ngModel" [class.invalids]="unit3.invalid && unit3.touched" > 
+                <td>TIME:<br><input type="text" placeholder="12:00-02:30" [(ngModel)]="registerTime3" name="registerTime3" [class.invalids]="tim3.invalid && tim3.touched" pattern="[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}-[0-1]{1}[0-9]{1}:[0-5]{1}[0-9]{1}" minlength="11" maxlength="11" class="input3" #tim3="ngModel"></td>
+                <td>ROOM:<br><input type="text" [(ngModel)]="registerRoom3" name="registerRoom3" class="input3" #room3="ngModel" [class.invalids]="room3.invalid && room3.touched"></td>
+                <td>UNIT:<br><select [(ngModel)]="registerUnit3" name="registerUnit3" class="input3" #unit3="ngModel" [class.invalids]="unit3.invalid && unit3.touched" > 
                         <option *ngFor="let unit of subunits" [value]="unit.id">
                             {{unit.id}}
                         </option>

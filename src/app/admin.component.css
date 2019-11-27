@@ -112,10 +112,8 @@ table, td{
   width: 150px;
 }
 .out{
-  float: left;
-  margin-top: 0px;
-  position: absolute;
-  margin-left: 600px;
+  margin-top: -25px;
+  margin-left: 80%;
   font-size: 10px;
   padding: 5px;
   border-radius: 5%;
@@ -149,9 +147,8 @@ li{
   margin-right: 20px;
 }
 .out2{
-  float: left;
-  position: absolute;
-  margin-left: 600px;
+  margin-top: -25px;
+  margin-left: 80%;
   font-size: 10px;
   padding: 5px;
   border-radius: 5%;
@@ -199,7 +196,7 @@ li{
 }
 
 
-@media only screen and (max-width: 600px){
+@media only screen and (max-width: 800px){
   body{
     
     background-color: #422d00;
@@ -298,9 +295,9 @@ li{
   }
   .out{
     background-color: #cfaf3b;
+    margin-top: -10px;
     float: left;
-    position: absolute;
-    margin-left: 340%;
+    margin-left: 80%;
     font-size: 10px;
     border-radius: 5%;
   }

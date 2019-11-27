@@ -1,5 +1,5 @@
 <section *ngIf="adminview">
-		<p class="admintext">Administrator
+		<p class="admintext">Administrator</p>
 			<!-- <input type="submit" value="LogOut" (click)="loginShow()"> -->
 			<button mwlConfirmationPopover
 	[popoverTitle]="popoverTitle"
@@ -8,7 +8,7 @@
 	(confirm)="logout()"
 	(cancel)="cancelClicked = true"
 	(click)="toggleup()">LogOut</button>
-		</p><br>
+		<br>
 		<ul>
             <li value="Accounts" (click)="adminAcc()">Accounts</li>
             <li value="Subjects" (click)="adminSub()">Subjects</li>
